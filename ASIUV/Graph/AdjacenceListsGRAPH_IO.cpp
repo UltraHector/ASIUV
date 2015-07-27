@@ -20,8 +20,6 @@ void AdjacenceListsGRAPH_IO::show(const AdjacenceListsGRAPH* G){
 };
 
 
-
-
 void AdjacenceListsGRAPH_IO::loadGraphFromFile(std::ifstream & graphFile, std::vector<AdjacenceListsGRAPH> & graphList) {
 	// graph data loaded into memory
 	string line;
@@ -38,24 +36,15 @@ void AdjacenceListsGRAPH_IO::loadGraphFromFile(std::ifstream & graphFile, std::v
 			// only consider one label per vertex
 			AdjacenceListsGRAPH::Vertex vertex =  AdjacenceListsGRAPH::Vertex(*integerValues.begin(),*(integerValues.begin()+1));
 
-			/****************************************/
-			/* add the vertexList if a hyper vertex */
-			/****************************************/
-			if(integerValues.begin()+2 != integerValues.end()){
-				graph.isHyperGraph = true;
-				// hyper vertex starts from the second element of this vector, the first element is a flag to mark it as clique
-				vertex.isClique = *(integerValues.begin()+2);
-				for(vector<int>::iterator vertexListIterator = integerValues.begin() + 3; vertexListIterator != integerValues.end(); vertexListIterator++){
-					vertex.vertexList.push_back(*vertexListIterator);	
-				}
-			}
 			graph.insert(vertex);
 		}
 		// insert all the edges
 		do{
 			String_Utility::readIntegersFromString(line, integerValues);
 			AdjacenceListsGRAPH::Edge edge =  AdjacenceListsGRAPH::Edge(*integerValues.begin(),*(integerValues.begin()+1),*(integerValues.begin()+2));
+
 			graph.insert(edge);
+
 		}while(getline (graphFile,line) && (*line.begin() == 'e'));
 		// insert the query graph into query list	
 	}

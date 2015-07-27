@@ -41,15 +41,15 @@ Ullmann::Ullmann(string dataGraphFileName, string queryGraphFileName) {
 void Ullmann::execute() {
 
 	for(int dataGraphIndex = 0; dataGraphIndex < dataGraphVector.size(); dataGraphIndex ++) {
-		
 		dataGraph = &dataGraphVector[dataGraphIndex];
 
 		for(int queryGraphIndex = 0; queryGraphIndex < queryGraphVector.size(); queryGraphIndex ++){
+			cout<<endl<<endl;
+			cout<<"**** Datagraph : "<<dataGraphIndex<<"  **** Query Graph : "<<queryGraphIndex<<endl;
+
 			queryGraph = &queryGraphVector[queryGraphIndex];
 			genericQueryProc();
-			cout<<queryGraphIndex<<" : finish one query with embeddings :"<<newEmbeddingsForEachQuery<<endl;
 		}
-		cout<<dataGraphIndex<<" finish one data graph ******* "<<endl;
 	}
 }
 
@@ -101,7 +101,7 @@ void Ullmann::subgraphSearch() {
 
 	if( embedding.size() == queryGraph -> getNumberOfVertexes()){
 		// FIND AN EMBDDING // // To Do ?
-		//showEmbedding();
+		showEmbedding();
 		totalNumberOfEmbeddings ++;
 		newEmbeddingsForEachQuery ++;
 		return ;
@@ -177,10 +177,14 @@ void Ullmann::restoreState(int u, int v){
 
 
 void Ullmann::showEmbedding() {
-	std::cout<<"{";
-	for(int i = 0; i < queryGraph -> getNumberOfVertexes(); i++){
-		cout<<"Embedding: "<<i<<"->"<<embedding[i]<<" , ";
+	std::cout<<"Embedding {";
+	for(int i = 0; i < queryGraph -> getNumberOfVertexes() - 1 ; i++){
+		cout<<" "<<i<<"->"<<embedding[i]<<" , ";
 	}
+	if(queryGraph -> getNumberOfVertexes() > 0){
+		cout<<" "<<queryGraph -> getNumberOfVertexes() - 1<<"->"<<embedding[queryGraph -> getNumberOfVertexes() - 1]<<"  ";
+	}
+
 	cout<<"}"<<endl;
 }
 

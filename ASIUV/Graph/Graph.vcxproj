@@ -16,14 +16,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AdjacenceListsGraph.cpp" />
-    <ClCompile Include="AdjacenceListsGRAPH_BOOST.cpp" />
     <ClCompile Include="AdjacenceListsGRAPH_IO.cpp" />
     <ClCompile Include="TraversalAlgorithm.cpp" />
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AdjacenceListsGraph.h" />
-    <ClInclude Include="AdjacenceListsGRAPH_BOOST.h" />
     <ClInclude Include="AdjacenceListsGRAPH_IO.h" />
     <ClInclude Include="TraversalAlgorithm.h" />
     <ClInclude Include="Utility.h" />

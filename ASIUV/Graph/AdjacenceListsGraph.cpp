@@ -20,7 +20,6 @@ AdjacenceListsGRAPH::AdjacenceListsGRAPH() {
 	digraph = false;
 	numberOfEdges = 0;
 	numberOfVertex = 0;
-	isHyperGraph = false;
 }
 
 
@@ -136,7 +135,6 @@ void AdjacenceListsGRAPH::insert(Edge e) {
 
 	vertexList[v].outDegree++;
 	vertexList[w].inDegree++;
-	vertexList[w].spongeIndegree++;
 	if(!digraph) {
 
 		if(vertexList[w].adj == 0) {
@@ -147,7 +145,6 @@ void AdjacenceListsGRAPH::insert(Edge e) {
 		}
 		vertexList[w].outDegree++;
 		vertexList[v].inDegree++;
-		vertexList[v].spongeIndegree++;
 	}
 	numberOfEdges ++;
 

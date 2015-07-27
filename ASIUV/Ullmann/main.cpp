@@ -21,10 +21,12 @@ void finalResult();
 
 int main(int argc, char* argv[]) {
 
-	/*dataGraphFileName = "C:/Users/s2813995/Desktop/TestData/data_2.graph";
-	queryGraphFileName = "C:/Users/s2813995/Desktop/TestData/query_1.graph";*/
+	dataGraphFileName = "C:/Users/s2813995/Desktop/Datasets/SubgraphIsomorphism/data_1.graph";
+	queryGraphFileName = "C:/Users/s2813995/Desktop/Datasets/SubgraphIsomorphism/query_1.graph";
+	outputFileName = "C:/Users/s2813995/Desktop/Datasets/SubgraphIsomorphism/result_1.graph";
 
-	if(InputCommandLineParser::cmdOptionExists(argc, argv, "-d")) { 
+
+	/*if(InputCommandLineParser::cmdOptionExists(argc, argv, "-d")) { 
 		dataGraphFileName = InputCommandLineParser::getCmdOption(argc, argv, "-d");
 	}
 	if(InputCommandLineParser::cmdOptionExists(argc, argv, "-q")) {
@@ -38,7 +40,7 @@ int main(int argc, char* argv[]) {
 		cout<<"Wrong Parameters"<<endl;
 		help();
 		exit(1);
-	}
+	}*/
 	
 	
 
@@ -60,7 +62,7 @@ int main(int argc, char* argv[]) {
 	
 
 	finalResult(); 
-	//system("pause");
+	system("pause");
 }
 
 void help(){

@@ -20,10 +20,9 @@ public:
 		node * adj;
 		int inDegree;   // if the graph is indirected graph, inDegree = outdegree
 		int outDegree;  // if the graph is indirected graph, both outdegree and indegree are are the degree of the vertex
-		int  spongeIndegree; // is the same as the inDegree but is used as a changable variable. 
-		Vertex(int id = -1,int label = -1):id(id),label(label){ adj = 0;inDegree=0;outDegree=0; isClique = 0;spongeIndegree=0;};
-		// 0. Only one vertex 1. IsClique 2. is not a clique
-		int isClique;
+		Vertex(int id = -1,int label = -1):id(id),label(label){ adj = 0;inDegree=0;outDegree=0;};
+
+
 		std::vector<int> vertexList; // if the vertex is an hyper-vertex. this is the vertex list belonging to the hypervertex 
 		std::map<int,std::vector<int>> labelVertexList; // save a list of vertices for each neighbour labels
 		std::set<int> labelSet;
@@ -36,8 +35,7 @@ public:
 
 	typedef node* link;
 
-	
-	bool isHyperGraph;
+
 
 private:
 	int numberOfVertex, numberOfEdges;
